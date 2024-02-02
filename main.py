@@ -40,7 +40,7 @@ def get_action(player1, player2):
     if np.random.rand() < epsilon:
         if players[marker-1].epsilon > .05:
             players[marker-1].epsilon -= .001
-        return random.sample(possible_next_states.keys(),1)[0]
+        return random.sample(sorted(possible_next_states.keys()),1)[0]
 
     else:
         i = 0
@@ -63,7 +63,7 @@ def get_action(player1, player2):
         try:
             return action
         except:
-            return random.sample(possible_next_states.keys(),1)[0]
+            return random.sample(sorted(possible_next_states.keys()),1)[0]
 
 def state_to_num(state):
     N = state[0]+3*state[1] + 9*state[2]+27*state[3]+81*state[4]+243*state[5]+729*state[6]+2187*state[7]+6561*state[8]
